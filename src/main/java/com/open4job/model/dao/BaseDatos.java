@@ -4,19 +4,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
-public class BaseDatosDAO {
+public class BaseDatos {
+	
 	private String driver;
 	private String url;
 	private String user;
 	private String password;
 	protected Connection connection = null;
-
-	public BaseDatosDAO(String driver, String url, String user, String password) {
-		this.driver = driver;
-		this.url = url;
-		this.user = user;
-		this.password = password;
+	
+	public BaseDatos() {
+		
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String host = "54.154.192.80";
+		String puerto = "1521";
+		String sid = "xe";
+		String user = "test";
+		String password = "test";
+		String url = "jdbc:oracle:thin:" + user + "/" + password + "@" + host
+				+ ":" + puerto + ":" + sid;
 	}
 
 	public String getDriver() {
