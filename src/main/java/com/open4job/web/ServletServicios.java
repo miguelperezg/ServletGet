@@ -42,13 +42,16 @@ public class ServletServicios extends HttpServlet {
 
 			// Vista
 			PrintWriter out = response.getWriter();
-
+			request.setAttribute("taxi", paradaTaxiVO);
+			request.getRequestDispatcher("TaxiId.jsp").forward(request, response);
+			/*
 			out.println("<html>");
 			out.println("<body>");
 			out.println("<h1>Servicio Taxi " + paradaTaxiVO.toString()
 					+ "</h1>");
 			out.println("</body>");
 			out.println("</html>");
+			*/
 		} catch (ClassNotFoundException e) {
 			logger.log(Level.SEVERE,
 					"ClassNotFoundException : " + e.getMessage());
