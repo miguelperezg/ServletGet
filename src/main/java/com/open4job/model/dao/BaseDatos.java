@@ -14,13 +14,13 @@ public class BaseDatos {
 	
 	public BaseDatos() {
 		
-		String driver = "oracle.jdbc.driver.OracleDriver";
+		driver = "oracle.jdbc.driver.OracleDriver";
 		String host = "54.154.192.80";
 		String puerto = "1521";
 		String sid = "xe";
-		String user = "test";
-		String password = "test";
-		String url = "jdbc:oracle:thin:" + user + "/" + password + "@" + host
+		user = "test";
+		password = "test";
+		url = "jdbc:oracle:thin:" + user + "/" + password + "@" + host
 				+ ":" + puerto + ":" + sid;
 	}
 

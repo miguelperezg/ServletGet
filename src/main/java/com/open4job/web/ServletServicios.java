@@ -28,11 +28,11 @@ public class ServletServicios extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		
+
 		// Controlador
 		String idIn = (String) request.getParameter("id");
 		int id = Integer.parseInt(idIn);
-		
+
 		// Modelo
 		BaseDatos bbdd = new BaseDatos();
 		try {
@@ -42,17 +42,22 @@ public class ServletServicios extends HttpServlet {
 
 			// Vista
 			PrintWriter out = response.getWriter();
-			out.println(paradaTaxiVO.toString());
 
+			out.println("<html>");
+			out.println("<body>");
+			out.println("<h1>Servicio Taxi " + paradaTaxiVO.toString()
+					+ "</h1>");
+			out.println("</body>");
+			out.println("</html>");
 		} catch (ClassNotFoundException e) {
 			logger.log(Level.SEVERE,
 					"ClassNotFoundException : " + e.getMessage());
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "SQLException : " + e.getMessage());
 		}
-		
+
 		bbdd.cerrarConexion();
 
 	}
-	
+
 }
