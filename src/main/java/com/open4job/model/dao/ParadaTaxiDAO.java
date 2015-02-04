@@ -12,7 +12,8 @@ public class ParadaTaxiDAO {
 
 	public ParadaTaxiDAO() {
 	}
-
+	BaseDatosDirecta bbdd = new BaseDatosDirecta();
+	
 	// Listado de las paradas de taxi
 
 	public ArrayList<ParadaTaxiVO> getListadoParadaTaxi(Connection conexion)
@@ -33,14 +34,15 @@ public class ParadaTaxiDAO {
 
 	// Devuelve la parada del taxi por el id
 
-	public ParadaTaxiVO getparadataxi(int id, Connection conexion)
-			throws SQLException {
+	public ParadaTaxiVO getparadataxi(int id)
+			throws Exception {
 		ParadaTaxiVO idLista = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
+		
+		Connection conec = bbdd.abrirConexion().getConnection();
 
-		stmt = conexion
-				.prepareStatement("SELECT * FROM PARADA_TAXI WHERE id = ?");
+		stmt = conec.prepareStatement("SELECT * FROM PARADA_TAXI WHERE id = ?");
 		stmt.setInt(1, id);
 		rs = stmt.executeQuery();
 

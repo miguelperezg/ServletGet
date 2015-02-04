@@ -3,25 +3,31 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>ServletServicios</servlet-name>
-  	<display-name>ServletServicios</display-name>
-  	<description></description>
-  	<servlet-class>com.open4job.web.ServletServicios</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>ServletSessionId</servlet-name>
-  	<display-name>ServletSessionId</display-name>
-  	<description></description>
-  	<servlet-class>com.open4job.web.ServletSessionId</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>ServletServicios</servlet-name>
-  	<url-pattern>/ServletServicios</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ServletSessionId</servlet-name>
-  	<url-pattern>/ServletSessionId</url-pattern>
-  </servlet-mapping>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>ServletServicios</servlet-name>
+		<display-name>ServletServicios</display-name>
+		<description></description>
+		<servlet-class>com.open4job.web.ServletServicios</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ServletSessionId</servlet-name>
+		<display-name>ServletSessionId</display-name>
+		<description></description>
+		<servlet-class>com.open4job.web.ServletSessionId</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServletServicios</servlet-name>
+		<url-pattern>/ServletServicios</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ServletSessionId</servlet-name>
+		<url-pattern>/ServletSessionId</url-pattern>
+	</servlet-mapping>
+	<resource-ref>
+		<description>Oracle Datasource example</description>
+		<res-ref-name>jdbc/myoracle</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
 </web-app>

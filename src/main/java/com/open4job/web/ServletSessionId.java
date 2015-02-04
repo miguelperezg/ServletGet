@@ -38,7 +38,7 @@ public class ServletSessionId extends HttpServlet {
 			ParadaTaxiDAO paradaTaxi = new ParadaTaxiDAO();
 			String idInt = (String) session.getAttribute("id");
 			int id = Integer.parseInt(idInt);
-			ParadaTaxiVO paradaTaxiVO = paradaTaxi.getparadataxi(id, conexion);
+			ParadaTaxiVO paradaTaxiVO = paradaTaxi.getparadataxi(id);
 			
 			session.setAttribute("taxi", paradaTaxiVO);
 			
@@ -49,6 +49,9 @@ public class ServletSessionId extends HttpServlet {
 					"ClassNotFoundException : " + e.getMessage());
 		} catch (SQLException e) {
 			logger.log(Level.SEVERE, "SQLException : " + e.getMessage());
+		} catch (Exception e) {
+			
+			e.printStackTrace();
 		}
 
 		bbdd.cerrarConexion();
