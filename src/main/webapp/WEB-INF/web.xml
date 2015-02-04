@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>com.open4job.web.ServletServicios</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletSessionId</servlet-name>
+  	<display-name>ServletSessionId</display-name>
+  	<description></description>
+  	<servlet-class>com.open4job.web.ServletSessionId</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletServicios</servlet-name>
   	<url-pattern>/ServletServicios</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletSessionId</servlet-name>
+  	<url-pattern>/ServletSessionId</url-pattern>
   </servlet-mapping>
 </web-app>

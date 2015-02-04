@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.open4job.model.dao.BaseDatos;
 import com.open4job.model.dao.ParadaTaxiDAO;
@@ -30,28 +31,39 @@ public class ServletServicios extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		// Controlador
+		HttpSession session = request.getSession(true);
 		String idIn = (String) request.getParameter("id");
-		int id = Integer.parseInt(idIn);
-
+		//int id = Integer.parseInt(idIn);
+		
+		session.setAttribute("id", idIn);
+		request.getRequestDispatcher("Confirmacion.jsp").forward(request, response);
+		
 		// Modelo
-		BaseDatos bbdd = new BaseDatos();
+		/*BaseDatos bbdd = new BaseDatos();
 		try {
+			
 			Connection conexion = bbdd.abrirConexion();
 			ParadaTaxiDAO paradaTaxi = new ParadaTaxiDAO();
 			ParadaTaxiVO paradaTaxiVO = paradaTaxi.getparadataxi(id, conexion);
-
-			// Vista
-			PrintWriter out = response.getWriter();
+			
+			session.setAttribute("taxi", paradaTaxiVO);
+			
+			
+			request.getRequestDispatcher("Confirmacion.jsp").forward(request, response);
+			
+			
+			
+			En vez de por session por request
 			request.setAttribute("taxi", paradaTaxiVO);
 			request.getRequestDispatcher("TaxiId.jsp").forward(request, response);
-			/*
+			
 			out.println("<html>");
 			out.println("<body>");
 			out.println("<h1>Servicio Taxi " + paradaTaxiVO.toString()
 					+ "</h1>");
 			out.println("</body>");
 			out.println("</html>");
-			*/
+			
 		} catch (ClassNotFoundException e) {
 			logger.log(Level.SEVERE,
 					"ClassNotFoundException : " + e.getMessage());
@@ -60,7 +72,7 @@ public class ServletServicios extends HttpServlet {
 		}
 
 		bbdd.cerrarConexion();
-
+		*/
 	}
 
 }
